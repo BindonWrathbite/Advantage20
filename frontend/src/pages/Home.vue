@@ -5,7 +5,7 @@
 <template>
   <!--HTML Code - Template-->
   <div>
-    <h1>Home</h1>
+    <span class="text-3xl text-red-800 font-bold">Home</span>
   </div>
 </template>
 
