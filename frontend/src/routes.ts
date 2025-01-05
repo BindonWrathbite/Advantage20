@@ -1,4 +1,15 @@
 export default [
-  { path: '/', component: () => import('./pages/Home.vue') },
-  { path: '/about', component: () => import('./pages/About.vue') },
+  // public routes
+  { path: '/login', component: () => import('@/pages/Login.vue') },
+
+  // protected routes: user must be logged in
+  {
+    path: '/',
+    component: () => import('@/layouts/AuthenticatedLayout.vue'),
+    meta: { requiresAuth: true },
+    children: [
+      { path: '', component: () => import('@/pages/Home.vue') },
+      { path: '/about', component: () => import('@/pages/About.vue') },
+    ],
+  },
 ]
