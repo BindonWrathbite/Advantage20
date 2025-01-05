@@ -9,4 +9,3 @@ A web application intended for managing homebrew D&D 5e campaigns.
 ## License
 
 [MIT](./LICENSE)
-Test 1
