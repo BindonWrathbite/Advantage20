@@ -20,6 +20,9 @@ const handleLogout = () => {
       Logout
     </button>
   </div>
+  <div>
+    <router-link to="/allusia" class="text-blue-500 hover:text-blue-800">Allusia</router-link>
+  </div>
 </template>
 
 <style>

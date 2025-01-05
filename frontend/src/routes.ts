@@ -1,6 +1,7 @@
 export default [
   // public routes
   { path: '/login', component: () => import('@/pages/Login.vue') },
+  { path: '/allusia', component: () => import('@/pages/Allusia.vue') },
 
   // protected routes: user must be logged in
   {
