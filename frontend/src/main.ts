@@ -1,23 +1,7 @@
 import { createApp } from 'vue'
-import PrimeVue from 'primevue/config'
-import DefaultTheme from '@/themes/default'
 import router from '@/router'
-import '@/style.css'
+import '@/assets/index.css'
 import App from '@/App.vue'
+import ripple from '@/directives/ripple.ts'
 
-createApp(App)
-  .use(router)
-  .use(PrimeVue, {
-    theme: {
-      preset: DefaultTheme,
-      options: {
-        prefix: 'p',
-        darkModeSelector: '.dark',
-        cssLayer: {
-          name: 'primevue',
-          order: 'tailwind-base, primevue, tailwind-utilities',
-        },
-      },
-    },
-  })
-  .mount('#app')
+createApp(App).use(router).directive('ripple', ripple).mount('#app')
