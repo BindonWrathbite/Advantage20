@@ -16,8 +16,6 @@ export default [
   {
     rules: {
       'vue/multi-word-component-names': 'off',
-      'vue/no-undef-components': 'off',
-      'vue/no-unused-components': 'off',
     },
   },
 ]
