@@ -8,6 +8,15 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('primevue/button')['default']
+    FloatLabel: typeof import('primevue/floatlabel')['default']
+    Form: typeof import('@primevue/forms/form')['default']
+    InputGroup: typeof import('primevue/inputgroup')['default']
+    InputGroupAddon: typeof import('primevue/inputgroupaddon')['default']
+    InputText: typeof import('primevue/inputtext')['default']
+    ISolarShieldKeyholeBold: typeof import('~icons/solar/shield-keyhole-bold')['default']
+    ISolarShieldUserBold: typeof import('~icons/solar/shield-user-bold')['default']
+    Message: typeof import('primevue/message')['default']
+    Panel: typeof import('primevue/panel')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

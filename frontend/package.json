@@ -16,7 +16,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@formkit/auto-animate": "^0.8.2",
+    "@iconify/json": "^2.2.294",
     "@primevue/auto-import-resolver": "^4.2.5",
+    "@primevue/forms": "^4.2.5",
     "@primevue/themes": "^4.2.5",
     "@types/node": "^22.10.5",
     "@vitejs/plugin-vue": "^5.2.1",
@@ -34,9 +37,11 @@
     "tailwindcss-primeui": "^0.3.4",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.19.0",
+    "unplugin-icons": "^22.0.0",
     "unplugin-vue-components": "^0.28.0",
     "vite": "^6.0.5",
     "vue-router": "^4.5.0",
-    "vue-tsc": "^2.2.0"
+    "vue-tsc": "^2.2.0",
+    "zod": "^3.24.1"
   }
 }
