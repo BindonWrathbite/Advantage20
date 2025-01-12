@@ -4,8 +4,11 @@ import { useRouter } from 'vue-router'
 import { zodResolver } from '@primevue/forms/resolvers/zod'
 import { z } from 'zod'
 import type { FormSubmitEvent } from '@primevue/forms/form'
+import { ref } from 'vue'
 
 const router = useRouter()
+
+const error = ref()
 
 const resolver = zodResolver(
   z.object({
@@ -16,13 +19,9 @@ const resolver = zodResolver(
 
 const handleLogin = (event: FormSubmitEvent) => {
   if (event.valid) {
-    login(event.values.username, event.values.password)
-      .then((data) => {
-        console.log(`Login successful for ${data.username}`)
-      })
-      .catch((error) => {
-        console.log('Login failed: ' + error)
-      })
+    login(event.values.username, event.values.password).catch((e) => {
+      error.value = e
+    })
   }
 }
 </script>
@@ -43,6 +42,12 @@ const handleLogin = (event: FormSubmitEvent) => {
         :resolver="resolver"
         @submit="handleLogin"
       >
+        <Message v-if="error" severity="error" class="w-full">
+          <template #icon>
+            <i-solar-danger-triangle-bold />
+          </template>
+          {{ error }}
+        </Message>
         <div class="flex flex-col gap-1 w-full">
           <InputGroup>
             <InputGroupAddon>

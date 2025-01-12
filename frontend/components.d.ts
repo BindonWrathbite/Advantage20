@@ -13,6 +13,7 @@ declare module 'vue' {
     InputGroup: typeof import('primevue/inputgroup')['default']
     InputGroupAddon: typeof import('primevue/inputgroupaddon')['default']
     InputText: typeof import('primevue/inputtext')['default']
+    ISolarDangerTriangleBold: typeof import('~icons/solar/danger-triangle-bold')['default']
     ISolarShieldKeyholeBold: typeof import('~icons/solar/shield-keyhole-bold')['default']
     ISolarShieldUserBold: typeof import('~icons/solar/shield-user-bold')['default']
     Message: typeof import('primevue/message')['default']
