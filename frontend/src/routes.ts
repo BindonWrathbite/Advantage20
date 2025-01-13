@@ -10,6 +10,8 @@ export default [
     meta: { requiresAuth: true },
     children: [
       { path: '', component: () => import('@/pages/Home.vue') },
+      { path: '/worlds/create', component: () => import('@/pages/worlds/CreateWorld.vue') },
+      { path: '/worlds/:slug', component: () => import('@/pages/worlds/ViewWorld.vue') },
       { path: '/about', component: () => import('@/pages/About.vue') },
     ],
   },

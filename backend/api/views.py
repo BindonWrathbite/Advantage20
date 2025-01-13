@@ -1,10 +1,13 @@
 from django.contrib.auth import login
 from django.contrib.auth.models import Group, User
 from knox.views import LoginView as KnoxLoginView
-from rest_framework import permissions, viewsets
+from rest_framework import permissions, viewsets, status
 from rest_framework.authtoken.serializers import AuthTokenSerializer
+from rest_framework.response import Response
 
-from api.serializers import GroupSerializer, UserSerializer
+from api.models import Continent, World
+from api.serializers import GroupSerializer, UserSerializer, \
+    ContinentSerializer, WorldSerializer
 
 
 class LoginView(KnoxLoginView):
@@ -35,4 +38,30 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all().order_by('name')
     serializer_class = GroupSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class WorldViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows worlds to be viewed or edited.
+    """
+    queryset = World.objects.all().order_by('name')
+    serializer_class = WorldSerializer
+    lookup_field = 'slug'
+    permission_classes = [permissions.IsAuthenticated]
+    
+    def create(self, request, *args, **kwargs):
+        serializer = WorldSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+class ContinentViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows continents to be viewed or edited.
+    """
+    queryset = Continent.objects.all().order_by('name')
+    serializer_class = ContinentSerializer
     permission_classes = [permissions.IsAuthenticated]

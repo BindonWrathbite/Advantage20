@@ -6,7 +6,7 @@ const toggleDarkMode = () => {
 
 <template>
   <Button label="Toggle Dark Mode" @click="toggleDarkMode()" />
-  <main class="bg-surface-0 dark:bg-surface-950">
+  <main class="bg-surface-0 dark:bg-surface-950 p-4">
     <router-view />
   </main>
 </template>

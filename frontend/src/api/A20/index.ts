@@ -46,6 +46,30 @@ export const clearToken = () => {
   localStorage.removeItem('username')
 }
 
+export const create = async (resource: string, data: object) => {
+    return http
+        .post(`${resource}/`, data)
+        .then((response) => {
+            router.push(`${resource}/${response.data.slug}`)
+            return response.data
+        })
+        .catch((error) => {
+            return Promise.reject(error.response?.data?.non_field_errors?.[0] || 'Invalid Input')
+        })
+}
+
+export const get = async (resource: string) => {
+    return http
+        .get(`${resource}/`)
+        .then((response) => {
+            return response.data
+        })
+        .catch((error) => {
+            console.log(error)
+            return Promise.reject(error.response?.data?.non_field_errors?.[0] || 'Invalid Input')
+        })
+}
+
 /**
  * Authenticates the user credentials with the API and stores the temporary access token in local storage.
  * If authentication fails then the access token is cleared from local storage and an error message is thrown.
